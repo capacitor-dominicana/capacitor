@@ -1,2 +1,4 @@
 # capacitor
-Capacitor corre Progressive Web Apps nativamente sobre iOS, Android, Electron, y el Navegador... Todo con un sólo código base (build to power @ionic-team/ionic)
+The Native Bridge for Cross-Platform Web Apps
+
+Invoca SDKs sobre iOS, Android, Electron, y la Web con un sólo código base. Optimizado para Aplicaciones de Ionic Framework, o uso con cualquier framework de aplicación web. ;)
