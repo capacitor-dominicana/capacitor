@@ -1,0 +1,511 @@
+{
+    "version": 1,
+    "projects": {
+        "ionic-dominicana": {
+            "projectType": "application",
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "root": "apps/ionic-dominicana",
+            "sourceRoot": "apps/ionic-dominicana-web/src",
+            "prefix": "workspace",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/ionic-dominicana-web/browser",
+                        "index": "apps/ionic-dominicana-web/src/index.html",
+                        "main": "apps/ionic-dominicana-web/src/main.ts",
+                        "polyfills": "apps/ionic-dominicana-web/src/polyfills.ts",
+                        "tsConfig": "apps/ionic-dominicana-web/tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "apps/ionic-dominicana-web/src/favicon.ico",
+                            "apps/ionic-dominicana-web/src/assets"
+                        ],
+                        "styles": ["apps/ionic-dominicana-web/src/styles.scss"],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/ionic-dominicana-web/src/environments/environment.ts",
+                                    "with": "apps/ionic-dominicana-web/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "ionic-dominicana:build",
+                        "proxyConfig": "apps/ionic-dominicana-web/proxy.conf.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "ionic-dominicana:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "ionic-dominicana:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "apps/ionic-dominicana-web/tsconfig.app.json",
+                            "apps/ionic-dominicana-web/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!apps/ionic-dominicana-web/**"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "apps/ionic-dominicana-web/jest.config.js",
+                        "tsConfig": "apps/ionic-dominicana-web/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "apps/ionic-dominicana-web/src/test-setup.ts"
+                    }
+                },
+                "server": {
+                    "builder": "@angular-devkit/build-angular:server",
+                    "options": {
+                        "outputPath": "dist/ionic-dominicana-web/server",
+                        "main": "apps/ionic-dominicana-web/server.ts",
+                        "tsConfig": "apps/ionic-dominicana-web/tsconfig.server.json",
+                        "externalDependencies": [
+                            "@nestjs/microservices",
+                            "@nestjs/microservices/microservices-module",
+                            "@nestjs/websockets",
+                            "@nestjs/websockets/socket-module",
+                            "cache-manager"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "outputHashing": "media",
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/ionic-dominicana-web/src/environments/environment.ts",
+                                    "with": "apps/ionic-dominicana-web/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "sourceMap": false,
+                            "optimization": false
+                        }
+                    }
+                },
+                "serve-ssr": {
+                    "builder": "@nguniversal/builders:ssr-dev-server",
+                    "options": {
+                        "browserTarget": "ionic-dominicana:build",
+                        "serverTarget": "ionic-dominicana:server"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "ionic-dominicana:build:production",
+                            "serverTarget": "ionic-dominicana:server:production"
+                        }
+                    }
+                },
+                "prerender": {
+                    "builder": "@nguniversal/builders:prerender",
+                    "options": {
+                        "browserTarget": "ionic-dominicana:build:production",
+                        "serverTarget": "ionic-dominicana:server:production",
+                        "routes": ["/"]
+                    },
+                    "configurations": {
+                        "production": {}
+                    }
+                }
+            }
+        },
+        "ionic-dominicana-e2e": {
+            "root": "apps/ionic-dominicana-e2e",
+            "sourceRoot": "apps/ionic-dominicana-e2e/src",
+            "projectType": "application",
+            "architect": {
+                "e2e": {
+                    "builder": "@nrwl/cypress:cypress",
+                    "options": {
+                        "cypressConfig": "apps/ionic-dominicana-e2e/cypress.json",
+                        "tsConfig": "apps/ionic-dominicana-e2e/tsconfig.e2e.json",
+                        "devServerTarget": "ionic-dominicana:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "ionic-dominicana:serve:production"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "apps/ionic-dominicana-e2e/tsconfig.e2e.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!apps/ionic-dominicana-e2e/**"
+                        ]
+                    }
+                }
+            }
+        },
+        "api": {
+            "root": "apps/api",
+            "sourceRoot": "apps/api/src",
+            "projectType": "application",
+            "prefix": "api",
+            "schematics": {},
+            "architect": {
+                "build": {
+                    "builder": "@nrwl/node:build",
+                    "options": {
+                        "outputPath": "dist/apps/api",
+                        "main": "apps/api/src/main.ts",
+                        "tsConfig": "apps/api/tsconfig.app.json",
+                        "assets": ["apps/api/src/assets"]
+                    },
+                    "configurations": {
+                        "production": {
+                            "optimization": true,
+                            "extractLicenses": true,
+                            "inspect": false,
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/api/src/environments/environment.ts",
+                                    "with": "apps/api/src/environments/environment.prod.ts"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@nrwl/node:execute",
+                    "options": {
+                        "buildTarget": "api:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "apps/api/tsconfig.app.json",
+                            "apps/api/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**", "!apps/api/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "apps/api/jest.config.js",
+                        "tsConfig": "apps/api/tsconfig.spec.json",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "api-interfaces": {
+            "root": "libs/api-interfaces",
+            "sourceRoot": "libs/api-interfaces/src",
+            "projectType": "library",
+            "schematics": {},
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/api-interfaces/tsconfig.lib.json",
+                            "libs/api-interfaces/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!libs/api-interfaces/**"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/api-interfaces/jest.config.js",
+                        "tsConfig": "libs/api-interfaces/tsconfig.spec.json",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "libs": {
+            "root": "libs",
+            "sourceRoot": "libs",
+            "projectType": "library",
+            "prefix": "workspace",
+            "architect": {
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "testing/test.libs.ts",
+                        "tsConfig": "testing/tsconfig.libs.spec.json",
+                        "karmaConfig": "testing/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "testing/tsconfig.libs.json",
+                            "testing/tsconfig.libs.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "xplat": {
+            "root": "xplat",
+            "sourceRoot": "xplat",
+            "projectType": "library",
+            "prefix": "workspace",
+            "architect": {
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "testing/test.xplat.ts",
+                        "tsConfig": "testing/tsconfig.xplat.spec.json",
+                        "karmaConfig": "testing/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "testing/tsconfig.xplat.json",
+                            "testing/tsconfig.xplat.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "ionic-dominicana-mobile": {
+            "root": "apps/ionic-dominicana-mobile/",
+            "sourceRoot": "apps/ionic-dominicana-mobile/src",
+            "projectType": "application",
+            "prefix": "workspace",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "styleext": "scss"
+                }
+            },
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "apps/ionic-dominicana-mobile/www",
+                        "index": "apps/ionic-dominicana-mobile/src/index.html",
+                        "main": "apps/ionic-dominicana-mobile/src/main.ts",
+                        "polyfills": "apps/ionic-dominicana-mobile/src/polyfills.ts",
+                        "tsConfig": "apps/ionic-dominicana-mobile/tsconfig.app.json",
+                        "assets": [
+                            {
+                                "glob": "**/*",
+                                "input": "apps/ionic-dominicana-mobile/src/assets",
+                                "output": "assets"
+                            },
+                            {
+                                "glob": "**/*.svg",
+                                "input": "node_modules/ionicons/dist/ionicons/svg",
+                                "output": "./svg"
+                            }
+                        ],
+                        "styles": [
+                            {
+                                "input": "apps/ionic-dominicana-mobile/src/theme/variables.scss"
+                            },
+                            {
+                                "input": "apps/ionic-dominicana-mobile/src/global.scss"
+                            }
+                        ],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/ionic-dominicana-mobile/src/environments/environment.ts",
+                                    "with": "apps/ionic-dominicana-mobile/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                }
+                            ]
+                        },
+                        "ci": {
+                            "progress": false
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "ionic-dominicana-mobile:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "ionic-dominicana-mobile:build:production"
+                        },
+                        "ci": {
+                            "progress": false
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "ionic-dominicana-mobile:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "apps/ionic-dominicana-mobile/src/test.ts",
+                        "polyfills": "apps/ionic-dominicana-mobile/src/polyfills.ts",
+                        "tsConfig": "apps/ionic-dominicana-mobile/tsconfig.spec.json",
+                        "karmaConfig": "apps/ionic-dominicana-mobile/karma.conf.js",
+                        "styles": [],
+                        "scripts": [],
+                        "assets": [
+                            {
+                                "glob": "favicon.ico",
+                                "input": "apps/ionic-dominicana-mobile/src/",
+                                "output": "/"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "apps/ionic-dominicana-mobile/src/assets",
+                                "output": "/assets"
+                            }
+                        ]
+                    },
+                    "configurations": {
+                        "ci": {
+                            "progress": false,
+                            "watch": false
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "apps/ionic-dominicana-mobile/tsconfig.app.json",
+                            "apps/ionic-dominicana-mobile/tsconfig.spec.json",
+                            "apps/ionic-dominicana-mobile/e2e/tsconfig.json"
+                        ],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                },
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "apps/ionic-dominicana-mobile/e2e/protractor.conf.js",
+                        "devServerTarget": "ionic-dominicana-mobile:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "ionic-dominicana-mobile:serve:production"
+                        },
+                        "ci": {
+                            "devServerTarget": "ionic-dominicana-mobile:serve:ci"
+                        }
+                    }
+                },
+                "ionic-cordova-build": {
+                    "builder": "@ionic/angular-toolkit:cordova-build",
+                    "options": {
+                        "browserTarget": "ionic-dominicana-mobile:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "ionic-dominicana-mobile:build:production"
+                        }
+                    }
+                },
+                "ionic-cordova-serve": {
+                    "builder": "@ionic/angular-toolkit:cordova-serve",
+                    "options": {
+                        "cordovaBuildTarget": "ionic-dominicana-mobile:ionic-cordova-build",
+                        "devServerTarget": "ionic-dominicana-mobile:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "cordovaBuildTarget": "ionic-dominicana-mobile:ionic-cordova-build:production",
+                            "devServerTarget": "ionic-dominicana-mobile:serve:production"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "cli": {
+        "defaultCollection": "@nstudio/xplat",
+        "analytics": "09b0c8c7-2d8e-4812-9c55-ee771591596e"
+    },
+    "schematics": {
+        "@nrwl/angular:application": {
+            "unitTestRunner": "jest",
+            "e2eTestRunner": "cypress"
+        },
+        "@nrwl/angular:library": {
+            "unitTestRunner": "jest"
+        }
+    },
+    "defaultProject": "ionic-dominicana"
+}
