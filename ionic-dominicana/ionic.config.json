@@ -1,7 +1,0 @@
-{
-  "name": "ionic-dominicana",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}

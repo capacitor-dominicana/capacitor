@@ -1,0 +1,29 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "outDir": "./dist/out-tsc",
+        "sourceMap": true,
+        "declaration": false,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "typeRoots": ["./node_modules/@types"],
+        "lib": ["es2018", "dom"],
+        "baseUrl": "./",
+        "paths": {
+            "@app/*": ["src/app/*"],
+            "@common/*": ["src/app/common/*"],
+            "@shared/*": ["src/app/shared/*"],
+            "@workspace/*": ["../../libs/*"],
+            "@workspace/ionic": ["../../xplat/ionic/index.ts"],
+            "@workspace/ionic/*": ["../../xplat/ionic/*"],
+            "@workspace/web": ["../../xplat/web/index.ts"],
+            "@workspace/web/*": ["../../xplat/web/*"],
+            "@workspace/ui": ["../../libs/features/ui/index.ts"],
+            "@workspace/ui/*": ["../../libs/ui/features/ui/*"]
+        }
+    }
+}
