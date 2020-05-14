@@ -1,0 +1,38 @@
+@mixin core-custom-bg-gradient-single($direction, $color1, $color2) {
+    background: -webkit-linear-gradient($direction, $color1, $color2);
+    background: -o-linear-gradient($direction, $color1, $color2);
+    background: -moz-linear-gradient($direction, $color1, $color2);
+    background: linear-gradient($direction, $color1, $color2);
+    background: $color1;
+}
+
+@mixin core-custom-bg-gradient-t-full($color1, $color2, $color3, $color4) {
+    background: -webkit-linear-gradient(top, $color1, $color2, $color3, $color4);
+    background: -o-linear-gradient(top, $color1, $color2, $color3, $color4);
+    background: -moz-linear-gradient(top, $color1, $color2, $color3, $color4);
+    background: linear-gradient(top, $color1, $color2, $color3, $color4);
+    background: color1;
+}
+
+@mixin core-custom-bg-gradient-r-full($color1, $color2, $color3, $color4) {
+    background: -webkit-linear-gradient(to right, $color1, $color2, $color3, $color4);
+    background: -o-linear-gradient(to right, $color1, $color2, $color3, $color4);
+    background: -moz-linear-gradient(to right, $color1, $color2, $color3, $color4);
+    background: linear-gradient(to right, $color1, $color2, $color3, $color4);
+    background: color1;
+}
+
+@mixin core-custom-bg-gradient-b-full($color1, $color2, $color3, $color4) {
+    background: -webkit-linear-gradient(bottom, $color1, $color2, $color3, $color4);
+    background: -o-linear-gradient(bottom, $color1, $color2, $color3, $color4);
+    background: -moz-linear-gradient(bottom, $color1, $color2, $color3, $color4);
+    background: linear-gradient(bottom, $color1, $color2, $color3, $color4);
+    background: color1;
+}
+@mixin core-custom-bg-gradient-l-full($color1, $color2, $color3, $color4) {
+    background: -webkit-linear-gradient(left, $color1, $color2, $color3, $color4);
+    background: -o-linear-gradient(left, $color1, $color2, $color3, $color4);
+    background: -moz-linear-gradient(left, $color1, $color2, $color3, $color4);
+    background: linear-gradient(left, $color1, $color2, $color3, $color4);
+    background: color1;
+}
