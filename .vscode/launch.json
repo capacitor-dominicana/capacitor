@@ -1,0 +1,93 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Client Chrome against localhost",
+            "type": "node",
+            "request": "launch",
+            "address": "http://localhost:8080/*",
+            "runtimeArgs": [
+              "--user-data-dir",
+              "--disable-infobars",
+              "--disable-session-crashed-bubble",
+              "--remote-debugging-port=9222"
+            ],
+            "sourceMaps": true,
+            "localRoot": "${workspaceRoot}",
+            "sourceMapPathOverrides": {
+                 "webpack:///C:*":"C:/*"
+             }
+        },
+        {
+            "name": "Attach Client to Chrome",
+            "type": "node",
+            "request": "attach",
+            "address": "http://localhost:8080/*",
+            "port": 9222,
+            "sourceMaps": true,
+            "localRoot": "${workspaceRoot}",
+            "sourceMapPathOverrides": {
+                 "webpack:///C:*":"C:/*"
+             }
+        },
+        {
+			"name": "Launch Node.JS Server",
+			"type": "node",
+            "request": "launch",
+			"program": "${workspaceRoot}/server/app.js",
+			"stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceRoot}",
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+                "NODE_ENV": "development"
+			},
+			"sourceMaps": true,
+            "console": "internalConsole"
+        },
+        {
+			"name": "Launch Production Server",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}\\server\\app.js",
+			"stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceRoot}",
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+                "NODE_ENV": "production"
+			},
+			"sourceMaps": true,
+            "console": "internalConsole"
+		},
+		{
+			"name": "Attach Node.JS Server",
+			"type": "node",
+			"request": "attach",
+			"port": 5858,
+			"address": "localhost",
+			"restart": false,
+			"sourceMaps": false,
+			"localRoot": "${workspaceRoot}",
+			"remoteRoot": null
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch via NPM",
+            "runtimeExecutable": "${workspaceRoot}", //change this to your npm path
+            "runtimeArgs": [
+                "npm build:prod",
+                "--",
+                "--inspect-brk=9229"
+            ],
+             "port": 9229
+        },
+    ]
+}

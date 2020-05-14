@@ -1,0 +1,33 @@
+{
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "beautify.language": {
+    "js": {
+      "type": ["javascript", "typescript", "json"],
+      "filename": [".jshintrc", ".jsbeautifyrc"],
+      "ext": ["js", "ts", "json"]
+      // ^^ to set extensions to be beautified using the javascript beautifier
+    },
+    "css": ["css", "scss"],
+    "html": ["htm", "html"]
+    // ^^ providing just an array sets the VS Code file type
+  },
+  "tslint.exclude": [
+    "**/client/bower_components/**",
+    "**/client/dist/**",
+    "**/node_modules/**",
+    "**/legacy-project/**",
+    "**/output/**",
+
+  ],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    ".vs/": true,
+    "src/**/*.map": true,
+    "output/": true
+  },
+  "jira-plugin.workingProject": ""
+}
