@@ -1,0 +1,32 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "typeRoots": ["node_modules/@types"],
+        "lib": ["es2017", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@capacitor/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+            "@capacitor/extensions/*": ["libs/extensions/*.extension.ts"],
+            "@capacitor/shared/module": ["libs/shared/shared.module.ts"],
+            "@capacitor/shared/constants": ["libs/shared/constants/index.ts"],
+            "@capacitor/shared/decorators": ["libs/shared/decorators/index.ts"],
+            "@capacitor/shared/helpers": ["libs/shared/helpers/index.ts"],
+            "@capacitor/shared/models": ["libs/shared/models/index.ts"],
+            "@capacitor/shared/pipes": ["libs/shared/pipes/index.ts"],
+            "@capacitor/shared/regexps": ["libs/shared/regexps/index.ts"],
+            "@capacitor/shared/toggles": ["libs/shared/toggles/index.ts"]
+        }
+    },
+    "exclude": ["node_modules", "tmp"]
+}

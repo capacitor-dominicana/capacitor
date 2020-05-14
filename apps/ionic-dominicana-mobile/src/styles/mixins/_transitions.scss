@@ -1,0 +1,22 @@
+$core-default-all-transition-duration: 0.4s;
+
+@mixin core-default-all-transition {
+    -webkit-transition: all $core-default-all-transition-duration;
+    -o-transition: all $core-default-all-transition-duration;
+    -moz-transition: all $core-default-all-transition-duration;
+    transition: all $core-default-all-transition-duration;
+}
+
+@mixin core-custom-all-transition($duration) {
+    -webkit-transition: all $duration;
+    -o-transition: all $duration;
+    -moz-transition: all $duration;
+    transition: all $duration;
+}
+
+@mixin core-custom-all-ease-transition($duration) {
+    -webkit-transition: all $duration ease;
+    -o-transition: all $duration ease;
+    -moz-transition: all $duration ease;
+    transition: all $duration ease;
+}
