@@ -1,0 +1,32 @@
+$core-default-box-shadow: 0 5px 30px 0px;
+$core-widget-box-shadow: 0px 16px 32px -17px;
+
+@mixin core-default-widget-box-shadow($color) {
+    -webkit-box-shadow: $core-widget-box-shadow $color;
+    -moz-box-shadow: $core-widget-box-shadow $color;
+    box-shadow: $core-widget-box-shadow $color;
+}
+
+@mixin core-default-box-shadow($color) {
+    -moz-box-shadow: $core-default-box-shadow $color;
+    -webkit-box-shadow: $core-default-box-shadow $color;
+    -o-box-shadow: $core-default-box-shadow $color;
+    -ms-box-shadow: $core-default-box-shadow $color;
+    box-shadow: $core-default-box-shadow $color;
+}
+
+@mixin core-custom-box-shadow($offset, $color) {
+    -moz-box-shadow: $offset $color;
+    -webkit-box-shadow: $offset $color;
+    -o-box-shadow: $offset $color;
+    -ms-box-shadow: $offset $color;
+    box-shadow: $offset $color;
+}
+
+@mixin core-custom-blur-filter($value) {
+    -webkit-filter: blur($value);
+    -moz-filter: blur($value);
+    -o-filter: blur($value);
+    -ms-filter: blur($value);
+    filter: blur($value);
+}

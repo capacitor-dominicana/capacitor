@@ -1,0 +1,8 @@
+{
+  "appId": "com.app.ionicdominicana",
+  "appName": "ionic-dominicana-mobile",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
