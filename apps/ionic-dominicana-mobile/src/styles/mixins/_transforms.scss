@@ -1,9 +1,0 @@
-$core-default-translate-tx: -50%;
-
-@mixin core-default-y-translate {
-    -webkit-transform: translateY($core-default-translate-tx);
-    -moz-transform: translateY($core-default-translate-tx);
-    -ms-transform: translateY($core-default-translate-tx);
-    -o-transform: translateY($core-default-translate-tx);
-    transform: translateY($core-default-translate-tx);
-}
