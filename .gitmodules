@@ -1,0 +1,4 @@
+[submodule "capacitor"]
+	path = capacitor
+	url = https://github.com/capacitor-dominicana/capacitor.git
+	branch = master
