@@ -1,4 +1,0 @@
-[submodule "workspace"]
-	path = workspace
-	url = https://github.com/capacitor-dominicana/capacitor.git
-	branch = master
