@@ -1,7 +1,0 @@
-{
-    "appId": "com.example.app",
-    "appName": "ionicdominicanamobile",
-    "bundledWebRuntime": false,
-    "webDir": "www",
-    "cordova": {}
-}

@@ -1,7 +1,0 @@
-{
-    "name": "ionicdominicanamobile",
-    "integrations": {
-        "capacitor": {}
-    },
-    "type": "angular"
-}
