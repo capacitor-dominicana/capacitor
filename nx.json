@@ -1,0 +1,43 @@
+{
+    "npmScope": "capacitor",
+    "implicitDependencies": {
+        "angular.json": "*",
+        "package.json": {
+            "dependencies": "*",
+            "devDependencies": "*"
+        },
+        "tsconfig.json": "*",
+        "tslint.json": "*",
+        "nx.json": "*"
+    },
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "@nrwl/workspace/tasks-runners/default",
+            "options": {
+                "cacheableOperations": ["build", "lint", "test", "e2e"]
+            }
+        }
+    },
+    "projects": {
+        "ionic-dominicana-web": {
+            "tags": []
+        },
+        "ionic-dominicana-web-e2e": {
+            "tags": [],
+            "implicitDependencies": ["ionic-dominicana-web"]
+        },
+        "api": {
+            "tags": []
+        },
+        "api-interfaces": {
+            "tags": []
+        },
+        "ionic-dominicana-mobile": {
+            "tags": []
+        },
+        "ionic-dominicana-mobile-e2e": {
+            "tags": [],
+            "implicitDependencies": ["ionic-dominicana-mobile"]
+        }
+    }
+}
