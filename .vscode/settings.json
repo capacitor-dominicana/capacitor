@@ -29,5 +29,8 @@
     "src/**/*.map": true,
     "output/": true
   },
-  "jira-plugin.workingProject": ""
+  "jira-plugin.workingProject": "",
+  "html.format.wrapAttributes": "force-aligned",
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "editor.defaultFormatter": "vscode.html-language-features"
 }
