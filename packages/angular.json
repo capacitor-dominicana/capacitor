@@ -30,9 +30,7 @@
                                 "output": "./svg"
                             }
                         ],
-                        "styles": [
-                            "apps/ionic-dominicana-web/src/styles.scss"
-                        ],
+                        "styles": ["apps/ionic-dominicana-web/src/styles.scss"],
                         "scripts": []
                     },
                     "configurations": {
@@ -383,8 +381,8 @@
         }
     },
     "cli": {
-        "defaultCollection": "@datorama/akita",
-        "analytics": "7b5cf027-4708-465a-98f2-690e3661cd96"
+        "defaultCollection": "@ionic/angular-toolkit",
+        "analytics": "70d77481-b0c0-4b6b-88fd-cae89facdc6c"
     },
     "schematics": {
         "@nrwl/angular:application": {
