@@ -17,7 +17,7 @@ En el que se desarrolló un **API Gateway** con la última versión del momento 
 
 
 [capacitor-support]:  https://capacitor.ionicframework.com/assets/img/supported-env.png  "Capacitor Supports"
-[deno-logo]: https://upload.wikimedia.org/wikipedia/commons/8/84/Deno.svg
+[deno-logo]: https://i.ibb.co/rk9qtMr/Deno.png
 
 
 ## Contribución
