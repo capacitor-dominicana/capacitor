@@ -1,0 +1,1 @@
+web: deno run --allow-net=:${PORT} --allow-read --allow-env --cached-only samples/event-6-2020/deno-api-gateway/app-heroku.ts --port=${PORT}

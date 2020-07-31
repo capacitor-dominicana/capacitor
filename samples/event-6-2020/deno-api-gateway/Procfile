@@ -1,1 +1,0 @@
-web: deno run --allow-net=:${PORT} --cached-only app-heroku.ts --port=${PORT}
