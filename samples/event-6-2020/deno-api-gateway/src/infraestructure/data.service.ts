@@ -23,10 +23,10 @@ export class DataService {
         // this.apiKey = Deno.env.get("COMMON_API_KEY") ?? "";
         // this.apiFullUrl = `${this.baseUrl}/${this.apiPathContext}/${this.apiUrlWithVersion}`;
 
-        this.baseUrl = ``;
-        this.apiPathContext = ``;
-        this.apiUrlWithVersion = ``;
-        this.apiKey = "";
+        this.baseUrl = `https://api.nasa.gov`;
+        this.apiPathContext = `mars-photos`;
+        this.apiUrlWithVersion = `api/v1`;
+        this.apiKey = "GOQfPXFpQPpltifdDjMOFPlKesQftfMys7yO0ZC2";
         this.apiFullUrl = `${this.baseUrl}/${this.apiPathContext}/${this.apiUrlWithVersion}`;
     }
 
